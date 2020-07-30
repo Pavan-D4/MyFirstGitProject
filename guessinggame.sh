@@ -1,21 +1,44 @@
-echo "Guessing game"
-echo"lets gesss number of files in directory"
-wcount=$(ls-la |wc-1)
-function qn {
-echo "enter number of files in repository "
-read num
+function again {
+    echo "guess again"
+    read response
 }
-while [[$num -ne $wcount]]
-do
-qn
-if[[$num -gt $wcount]]
-then
-echo"you have gessed great number of files in directory"
-elif [[$num -lt $wcount]]
-then 
-echo"you have guessed less number of files in directory"
-else
-echo"you have wrongly guessed number of files in directory"
-fi
-done
-echo"the game of guessing directory is almost done"
+count=10
+echo "Guess how many files are in the current directory"
+read guess
+    if [[ $guess -eq 3 ]]
+    then  
+        echo "congratulations your guess was correct"
+    elif [[ $guess -gt 3 ]]
+    then
+        echo "your guess is too high"
+        while [[ count -gt 1 ]]
+        do 
+            again
+            if [[ $response -eq 3 ]]
+            then  
+                let count=0
+                echo "congratulations your guess was correct"
+            elif [[ $response -gt 3 ]]
+            then
+                echo "your guess is too high"
+            else
+                echo "your guess is too low"
+            fi 
+        done
+    else
+        echo "your guess is too low"
+        while [[ count -gt 1 ]]
+        do 
+            again
+            if [[ $response -eq 3 ]]
+            then  
+                let count=0
+                echo "congratulations your guess was correct"
+            elif [[ $response -gt 3 ]]
+            then
+                echo "your guess is too high"
+            else
+                echo "your guess is too low"
+            fi 
+        done
+    
